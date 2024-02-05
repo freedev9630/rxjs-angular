@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { OperatorService } from './rxjs/operator.service';
+import { TransformationOperatorService } from './rxjs/transformation-operator.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,9 @@ import { OperatorService } from './rxjs/operator.service';
 export class AppComponent implements AfterViewInit {
   @ViewChild('inputref') inputref!: ElementRef<HTMLInputElement>;
 
-  constructor(public readonly operatorService: OperatorService) {}
+  constructor(public readonly transformationOperatorService: TransformationOperatorService) {}
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    // this.transformationOperatorService.switchMap(this.inputref.nativeElement);
+  }
 }
